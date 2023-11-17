@@ -7,13 +7,13 @@
 name: app
 
 # The runtime the application uses.
-type: "java:11"
+type: "nodejs:14.16.1“
 
 disk: 1024
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: mvn clean package
+    build: npm install
 
 # The relationships of the application with services or other applications.
 #
@@ -26,4 +26,4 @@ relationships:
 # The configuration of app when it is exposed to the web.
 web:
     commands:
-        start: java -jar $JAVA_OPTS target/spring-mvc-maven-mongodb.jar --server.port=$PORT
+        start: NODE_ENV=development nest start
